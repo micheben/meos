@@ -30,7 +30,7 @@ boot.o:
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(shell dirname $@)
-	i686-elf-gcc -c $< -o $@ -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+	i686-elf-gcc -c $< -o $@ -I include -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 
 clean:
 	rm -rf build

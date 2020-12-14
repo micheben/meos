@@ -1,0 +1,22 @@
+{
+    "folders":
+    [
+        {
+            "path": "."
+        }
+    ],
+    "settings":
+    {
+        "detect_indentation": true,
+        "tab_size": 4,
+        "translate_tabs_to_spaces": true,
+        "ecc_common_flags" : [
+            "-I/usr/include",
+            "-I$project_base_path/include",
+            "-I$project_base_path/src",
+            "-I$project_base_path/pluginsrc",
+            // this is needed to include the correct headers for clang
+            "-I/usr/lib/clang/$clang_version/include",
+        ],
+    }
+}
