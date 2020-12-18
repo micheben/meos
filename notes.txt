@@ -1,5 +1,14 @@
 # Unordered Notes
 
+## GCC Freestanding Headers
+<stdbool.h>
+<stddef.h>
+<stdint.h>
+<float.h>
+<iso646.h>
+<limits.h>
+<stdarg.h>
+
 ## Memorymanagement
 
 * Physical Memory and Virtual Memory has to be organised, using different algorithms
