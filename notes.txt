@@ -1,0 +1,19 @@
+# Unordered Notes
+
+## Memorymanagement
+
+* Physical Memory and Virtual Memory has to be organised, using different algorithms
+  - Physical Memory -> Data Structure lives as long as the OS is running
+  - Virtual Memory -> Data Structure exists for Program in user space (i think?)
+
+
+
+# OS Theory / Background (https://wiki.osdev.org/Category:OS_theory)
+
+## Common Algorithms (https://wiki.osdev.org/Category:Common_Algorithms)
+
+* CRC32 as Hashing algorithm
+* Dithering (Graphical OS)
+* Page Frame Allocation (Physical Memory, Virtal Memory, Memory Algorithms)
+* Random Number Generator
+* Scheduling Algorithms
