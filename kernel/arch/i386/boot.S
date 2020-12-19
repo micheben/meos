@@ -26,6 +26,9 @@ stack_top:
 _start:
 	movl $stack_top, %esp
 
+	# Call the pre Init, so some of the functionality is avaliable for global constructors.
+	call kernel_pre_init
+
 	# Call the global constructors.
 	call _init
 

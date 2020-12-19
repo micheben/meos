@@ -9,7 +9,7 @@
     {
         "detect_indentation": true,
         "tab_size": 4,
-        "translate_tabs_to_spaces": true,
+        "translate_tabs_to_spaces": false,
         "ecc_common_flags" : [
             "-I$project_base_path/kernel/include",
             "-I$project_base_path/libc/include",

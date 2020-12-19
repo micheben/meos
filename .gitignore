@@ -1,3 +1,4 @@
 sysroot
 isodir
 meos.iso
+*.sublime-workspace
