@@ -7,7 +7,7 @@ load_idt:
 
 
 # TODO:
-#  - Pass Struct as point
+#  - Pass Struct as pointer ( iff we want to make changes to the registeres?)
 #  - We should not call "CLI", instead the idt entry should specify, if interrupts should be enabeld
 
 # This is our common ISR stub. It saves the processor state, sets
@@ -112,11 +112,11 @@ isr_errcode   13
 isr_errcode   14
 isr_noerrcode 15
 isr_noerrcode 16
-isr_noerrcode 17
+isr_errcode   17
 isr_noerrcode 18
 isr_noerrcode 19
 isr_noerrcode 20
-isr_noerrcode 21
+isr_errcode   21
 isr_noerrcode 22
 isr_noerrcode 23
 isr_noerrcode 24
