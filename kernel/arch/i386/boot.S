@@ -26,6 +26,10 @@ stack_top:
 _start:
 	movl $stack_top, %esp
 
+	# Init the GDT and the IDT
+	call init_default_gdt
+	call init_default_idt
+
 	# Call the pre Init, so some of the functionality is avaliable for global constructors.
 	call kernel_pre_init
 
