@@ -80,7 +80,6 @@ isr_common_stub:
 .macro isr_noerrcode i  #define a macro, taking one parameter
     .global isr\i
     isr\i:
-        cli
         push $0
         push $\i
         jmp isr_common_stub
@@ -89,7 +88,6 @@ isr_common_stub:
 .macro isr_errcode i
     .global isr\i
     isr\i:
-        cli
         push $\i
         jmp isr_common_stub
 .endm
