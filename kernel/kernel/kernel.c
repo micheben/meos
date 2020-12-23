@@ -21,7 +21,7 @@ typedef struct registers
 } registers_t;
 
 // This gets called from our ASM interrupt handler stub.
-void isr_handler(registers_t regs)
+void isr_handler(registers_t* regs)
 {
 	printf("recieved interrupt: \n");
 	printf(
@@ -30,11 +30,11 @@ void isr_handler(registers_t regs)
 		"ebx: %#08X, edx: %#08X, ecx: %#08X, eax: %#08X\n"
 		"int_no: %#08X, err_code: %#08X\n"
 		"eip: %#08X, cs: %#08X, eflags: %#08X, useresp: %#08X, ss: %#08X\n",
-		regs.ds,
-		regs.edi, regs.esi, regs.ebp, regs.esp,
-		regs.ebx, regs.edx, regs.ecx, regs.eax,
-		regs.int_no, regs.err_code,
-		regs.eip, regs.cs, regs.eflags, regs.useresp, regs.ss
+		regs->ds,
+		regs->edi, regs->esi, regs->ebp, regs->esp,
+		regs->ebx, regs->edx, regs->ecx, regs->eax,
+		regs->int_no, regs->err_code,
+		regs->eip, regs->cs, regs->eflags, regs->useresp, regs->ss
 	);
 }
 
