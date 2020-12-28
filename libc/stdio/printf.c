@@ -36,7 +36,7 @@ static bool printHexDigit(const char hex) {
 	}
 }
 
-static bool printHex(const uint32_t hex) {
+bool printHex(const uint32_t hex) {
 	print("0x", 2);
 	if (!printHexDigit((char)((hex & 0xF0000000) >> 28)))
 		return false;

@@ -36,11 +36,32 @@ _start:
 	# Call the global constructors.
 	call _init
 
+	push $100
+	call init_irq0_timer
+	add $0x04, %esp    # Cleans up the pushed error code and ISR number,
+
 	# Transfer control to the main kernel.
 	call kernel_main
 
 	# Hang if kernel_main unexpectedly returns.
 	cli
+
+	push $69
+	call putchar
+	add $0x04, %esp
+
+	push $82
+	call putchar
+	add $0x04, %esp
+
+	push $82
+	call putchar
+	add $0x04, %esp
+
+	push $82
+	call putchar
+	add $0x04, %esp
+
 1:	hlt
 	jmp 1b
 .size _start, . - _start
