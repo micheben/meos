@@ -24,44 +24,48 @@ stack_top:
 .global _start
 .type _start, @function
 _start:
-	movl $stack_top, %esp
+    movl $stack_top, %esp
 
-	# Init the GDT and the IDT
-	call init_default_gdt
-	call init_default_idt
+    cli   # Disable interrupts during setup of GDT, IDT and PIT
 
-	# Call the pre Init, so some of the functionality is avaliable for global constructors.
-	call kernel_pre_init
+    # Init the GDT and the IDT
+    call init_default_gdt
+    call init_default_idt
 
-	# Call the global constructors.
-	call _init
+    push $100
+    call init_irq0_timer
+    add $0x04, %esp    # Cleans up the pushed error code and ISR number,
 
-	push $100
-	call init_irq0_timer
-	add $0x04, %esp    # Cleans up the pushed error code and ISR number,
+    sti  # Enable Interrupts
 
-	# Transfer control to the main kernel.
-	call kernel_main
+    # Call the pre Init, so some of the functionality is avaliable for global constructors.
+    call kernel_pre_init
 
-	# Hang if kernel_main unexpectedly returns.
-	cli
+    # Call the global constructors.
+    call _init
 
-	push $69
-	call putchar
-	add $0x04, %esp
+    # Transfer control to the main kernel.
+    call kernel_main
 
-	push $82
-	call putchar
-	add $0x04, %esp
+    # Hang if kernel_main unexpectedly returns.
+    cli
 
-	push $82
-	call putchar
-	add $0x04, %esp
+    push $69
+    call putchar
+    add $0x04, %esp
 
-	push $82
-	call putchar
-	add $0x04, %esp
+    push $82
+    call putchar
+    add $0x04, %esp
 
-1:	hlt
-	jmp 1b
+    push $82
+    call putchar
+    add $0x04, %esp
+
+    push $82
+    call putchar
+    add $0x04, %esp
+
+1:  hlt
+    jmp 1b
 .size _start, . - _start
