@@ -21,7 +21,6 @@ extern void EOI_slave(void);
 static uint32_t system_ticks = 0;
 void irq0_handler() {
     ++system_ticks;
-    printf( "tick: %#08X\n", system_ticks );
     EOI_master();
 }
 

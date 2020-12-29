@@ -32,7 +32,7 @@ _start:
     call init_default_gdt
     call init_default_idt
 
-    push $100
+    push $50  # 50 Times per second
     call init_irq0_timer
     add $0x04, %esp    # Cleans up the pushed error code and ISR number,
 
